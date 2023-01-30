@@ -1,0 +1,15 @@
+D:\git\estudos-cs\01-console\bin\Debug\net7.0\01-console.exe
+D:\git\estudos-cs\01-console\bin\Debug\net7.0\01-console.deps.json
+D:\git\estudos-cs\01-console\bin\Debug\net7.0\01-console.runtimeconfig.json
+D:\git\estudos-cs\01-console\bin\Debug\net7.0\01-console.dll
+D:\git\estudos-cs\01-console\bin\Debug\net7.0\01-console.pdb
+D:\git\estudos-cs\01-console\obj\Debug\net7.0\01-console.csproj.AssemblyReference.cache
+D:\git\estudos-cs\01-console\obj\Debug\net7.0\01-console.GeneratedMSBuildEditorConfig.editorconfig
+D:\git\estudos-cs\01-console\obj\Debug\net7.0\01-console.AssemblyInfoInputs.cache
+D:\git\estudos-cs\01-console\obj\Debug\net7.0\01-console.AssemblyInfo.cs
+D:\git\estudos-cs\01-console\obj\Debug\net7.0\01-console.csproj.CoreCompileInputs.cache
+D:\git\estudos-cs\01-console\obj\Debug\net7.0\01-console.dll
+D:\git\estudos-cs\01-console\obj\Debug\net7.0\refint\01-console.dll
+D:\git\estudos-cs\01-console\obj\Debug\net7.0\01-console.pdb
+D:\git\estudos-cs\01-console\obj\Debug\net7.0\01-console.genruntimeconfig.cache
+D:\git\estudos-cs\01-console\obj\Debug\net7.0\ref\01-console.dll
