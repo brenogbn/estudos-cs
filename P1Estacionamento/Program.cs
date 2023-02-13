@@ -46,7 +46,85 @@ public class Program
         Console.WriteLine("5 - Configurações");
         Console.WriteLine("6 - Sair");
     }
-    public static void Prompt(){
+
+    public static void EntradaDeVeiculo(Vaga[] vagas)
+    {
+        Console.WriteLine("Digite a placa do veículo:");
+        string placa = Convert.ToString(Console.ReadLine());
+        Console.WriteLine("Digite o horário de entrada:");
+        int hora = Convert.ToInt32(Console.ReadLine());
+        for (int i = 0; i < vagas.Length; i++)
+        {
+            if (!vagas[i].Ocupada)
+            {
+                vagas[i].Veiculo = new VeiculoEstacionado(placa, hora);
+                vagas[i].Ocupada = true;
+                Console.WriteLine("Veículo estacionado com sucesso!");
+                break;
+            }
+            else if (i == vagas.Length - 1)
+            {
+                Console.WriteLine("Não há vagas disponíveis!");
+            }
+        }
+    }
+    public static void ConsultaDeVagas(Vaga[] vagas)
+    {
+        Console.WriteLine($"Total de {vagas.Length} vagas.");
+        for (int i = 0; i < vagas.Length; i++)
+        {
+            if (vagas[i].Ocupada)
+            {
+                Console.WriteLine("Vaga " + (i + 1) + ": " + vagas[i].Veiculo.Placa);
+            }
+            else
+            {
+                Console.WriteLine("Vaga " + (i + 1) + ": Livre");
+            }
+        }
+    }
+    public static void ConsultaDeVeiculo(Vaga[] vagas)
+    {
+        Console.WriteLine("Digite a placa do veículo:");
+        string placa = Convert.ToString(Console.ReadLine());
+        for (int i = 0; i < vagas.Length; i++)
+        {
+            if (vagas[i].Veiculo.Placa == placa)
+            {
+                Console.WriteLine("Veículo encontrado!");
+                Console.WriteLine("Placa: " + vagas[i].Veiculo.Placa);
+                Console.WriteLine("Hora de entrada: " + vagas[i].Veiculo.HoraDeEntrada);
+                break;
+            }
+            else if (i == vagas.Length - 1)
+            {
+                Console.WriteLine("Veículo não encontrado!");
+            }
+        }
+    }
+    public static void SaidaDeVeiculo(Vaga[] vagas)
+    {
+        Console.WriteLine("Digite a placa do veículo:");
+        string placa = Convert.ToString(Console.ReadLine());
+        Console.WriteLine("Digite o horário de saída:");
+        int hora = Convert.ToInt32(Console.ReadLine());
+        for (int i = 0; i < vagas.Length; i++)
+        {
+            if (vagas[i].Veiculo.Placa == placa)
+            {
+                Console.WriteLine("Valor a pagar: " + vagas[i].Veiculo.ValorAtual(Minimo, ValorPorHora, hora));
+                vagas[i].Ocupada = false;
+                vagas[i].Veiculo = null;
+                break;
+            }
+            else if (i == vagas.Length - 1)
+            {
+                Console.WriteLine("Veículo não encontrado!");
+            }
+        }
+    }
+    public static void Prompt(Vaga[] vagas)
+    {
         int opcao = 0;
         do{
             Console.Clear();
@@ -56,15 +134,19 @@ public class Program
             {
                 case 1:
                     Console.WriteLine("Entrada de veículo");
+                    EntradaDeVeiculo(vagas);
                     break;
                 case 2:
                     Console.WriteLine("Saída de veículo");
+                    SaidaDeVeiculo(vagas);
                     break;
                 case 3:
                     Console.WriteLine("Consulta de veículo");
+                    ConsultaDeVeiculo(vagas);
                     break;
                 case 4:
                     Console.WriteLine("Consulta de vagas");
+                    ConsultaDeVagas(vagas);
                     break;
                 case 5:
                     Console.WriteLine("Configurações");
@@ -95,6 +177,6 @@ public class Program
         {
             vagas[i] = new Vaga();
         }
-        Prompt();
+        Prompt(vagas);
     }
 }
